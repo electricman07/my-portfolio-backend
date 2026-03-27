@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tech_stacks",
+  "info": {
+    "singularName": "tech-stack",
+    "pluralName": "tech-stacks",
+    "displayName": "tech-stack"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "iconName": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "technologies"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "proficiency": {
+      "type": "integer"
+    },
+    "milestones": {
+      "type": "component",
+      "component": "shared.milestone",
+      "repeatable": true
+    }
+  }
+}

@@ -12,12 +12,38 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
+    "content": {
+      "type": "blocks"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "experienceYears": {
+      "type": "integer"
+    },
+    "education": {
+      "type": "text"
+    },
+    "experienceSummary": {
+      "type": "text"
+    },
+    "coreValues": {
+      "type": "component",
+      "component": "shared.core-values",
+      "repeatable": true
+    },
+    "skills": {
+      "type": "blocks"
+    },
+    "secondaryDescription": {
+      "type": "blocks"
     }
   }
 }
