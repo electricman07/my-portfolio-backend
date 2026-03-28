@@ -1,0 +1,16 @@
+services:
+  strapi-db:
+    image: postgres:18-alpine # Updated to version 18
+    container_name: strapi-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME:-strapi}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-strapi_password}
+      POSTGRES_DB: ${DATABASE_NAME:-strapi_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - strapi-data:/var/lib/postgresql/data
+
+volumes:
+  strapi-data:
