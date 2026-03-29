@@ -447,8 +447,8 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    education: Schema.Attribute.Text;
-    experienceSummary: Schema.Attribute.Text;
+    education: Schema.Attribute.Component<'shared.education', true>;
+    experience: Schema.Attribute.Component<'shared.experience', true>;
     experienceYears: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &

@@ -12,6 +12,30 @@ export interface SharedCoreValues extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedEducation extends Struct.ComponentSchema {
+  collectionName: 'components_shared_educations';
+  info: {
+    displayName: 'education';
+  };
+  attributes: {
+    courseName: Schema.Attribute.String;
+    school: Schema.Attribute.String;
+  };
+}
+
+export interface SharedExperience extends Struct.ComponentSchema {
+  collectionName: 'components_shared_experiences';
+  info: {
+    displayName: 'experience';
+  };
+  attributes: {
+    companyName: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    duration: Schema.Attribute.String;
+    jobTitle: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -90,6 +114,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.core-values': SharedCoreValues;
+      'shared.education': SharedEducation;
+      'shared.experience': SharedExperience;
       'shared.media': SharedMedia;
       'shared.milestone': SharedMilestone;
       'shared.quote': SharedQuote;

@@ -28,12 +28,6 @@
     "experienceYears": {
       "type": "integer"
     },
-    "education": {
-      "type": "text"
-    },
-    "experienceSummary": {
-      "type": "text"
-    },
     "coreValues": {
       "type": "component",
       "component": "shared.core-values",
@@ -44,6 +38,16 @@
     },
     "secondaryDescription": {
       "type": "blocks"
+    },
+    "education": {
+      "type": "component",
+      "component": "shared.education",
+      "repeatable": true
+    },
+    "experience": {
+      "type": "component",
+      "component": "shared.experience",
+      "repeatable": true
     }
   }
 }

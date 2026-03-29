@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_educations",
+  "info": {
+    "displayName": "education"
+  },
+  "options": {},
+  "attributes": {
+    "courseName": {
+      "type": "string"
+    },
+    "school": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

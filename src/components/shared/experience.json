@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_experiences",
+  "info": {
+    "displayName": "experience"
+  },
+  "options": {},
+  "attributes": {
+    "duration": {
+      "type": "string"
+    },
+    "jobTitle": {
+      "type": "string"
+    },
+    "companyName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
