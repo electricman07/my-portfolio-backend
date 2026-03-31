@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "knowledge_bases",
+  "info": {
+    "singularName": "knowledge-base",
+    "pluralName": "knowledge-bases",
+    "displayName": "KnowledgeBase"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Backend",
+        "frontend",
+        "database"
+      ]
+    },
+    "symptoms": {
+      "type": "blocks"
+    },
+    "theFix": {
+      "type": "blocks"
+    },
+    "severity": {
+      "type": "enumeration",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "knowledge_bases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::knowledge-base.knowledge-base",
+      "inversedBy": "relatedErrors"
+    },
+    "relatedErrors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::knowledge-base.knowledge-base",
+      "mappedBy": "knowledge_bases"
+    }
+  }
+}

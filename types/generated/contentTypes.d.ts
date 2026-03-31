@@ -612,6 +612,47 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiKnowledgeBaseKnowledgeBase
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'knowledge_bases';
+  info: {
+    displayName: 'KnowledgeBase';
+    pluralName: 'knowledge-bases';
+    singularName: 'knowledge-base';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.Enumeration<['Backend', 'frontend', 'database']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    knowledge_bases: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::knowledge-base.knowledge-base'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::knowledge-base.knowledge-base'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    relatedErrors: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::knowledge-base.knowledge-base'
+    >;
+    severity: Schema.Attribute.Enumeration<['low', 'medium', 'high']>;
+    symptoms: Schema.Attribute.Blocks;
+    theFix: Schema.Attribute.Blocks;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMessageMessage extends Struct.CollectionTypeSchema {
   collectionName: 'messages';
   info: {
@@ -1353,6 +1394,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
+      'api::knowledge-base.knowledge-base': ApiKnowledgeBaseKnowledgeBase;
       'api::message.message': ApiMessageMessage;
       'api::post.post': ApiPostPost;
       'api::project.project': ApiProjectProject;
