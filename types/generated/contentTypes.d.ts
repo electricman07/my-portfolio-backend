@@ -620,7 +620,7 @@ export interface ApiMessageMessage extends Struct.CollectionTypeSchema {
     singularName: 'message';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
