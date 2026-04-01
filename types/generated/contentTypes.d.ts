@@ -512,7 +512,11 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
+    iconName: Schema.Attribute.String;
+    knowledge_bases: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::knowledge-base.knowledge-base'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -521,7 +525,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID;
+    slug: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -624,7 +628,10 @@ export interface ApiKnowledgeBaseKnowledgeBase
     draftAndPublish: true;
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<['Backend', 'frontend', 'database']>;
+    categories: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::category.category'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -632,6 +639,7 @@ export interface ApiKnowledgeBaseKnowledgeBase
       'manyToMany',
       'api::knowledge-base.knowledge-base'
     >;
+    lastVerified: Schema.Attribute.Date;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -639,11 +647,12 @@ export interface ApiKnowledgeBaseKnowledgeBase
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    relatedErrors: Schema.Attribute.Relation<
+    related_articles: Schema.Attribute.Relation<
       'manyToMany',
       'api::knowledge-base.knowledge-base'
     >;
     severity: Schema.Attribute.Enumeration<['low', 'medium', 'high']>;
+    slug: Schema.Attribute.UID<'title'>;
     symptoms: Schema.Attribute.Blocks;
     theFix: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;

@@ -16,10 +16,17 @@
       "type": "string"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "name"
     },
-    "description": {
-      "type": "text"
+    "iconName": {
+      "type": "string"
+    },
+    "knowledge_bases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::knowledge-base.knowledge-base",
+      "inversedBy": "categories"
     }
   }
 }

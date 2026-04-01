@@ -14,14 +14,6 @@
     "title": {
       "type": "string"
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "Backend",
-        "frontend",
-        "database"
-      ]
-    },
     "symptoms": {
       "type": "blocks"
     },
@@ -36,17 +28,30 @@
         "high"
       ]
     },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "knowledge_bases"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "lastVerified": {
+      "type": "date"
+    },
+    "related_articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::knowledge-base.knowledge-base",
+      "inversedBy": "knowledge_bases"
+    },
     "knowledge_bases": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::knowledge-base.knowledge-base",
-      "inversedBy": "relatedErrors"
-    },
-    "relatedErrors": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::knowledge-base.knowledge-base",
-      "mappedBy": "knowledge_bases"
+      "mappedBy": "related_articles"
     }
   }
 }
