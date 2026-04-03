@@ -51,6 +51,12 @@
       "relation": "oneToMany",
       "target": "api::author.author",
       "mappedBy": "posts"
+    },
+    "related_projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "inversedBy": "project"
     }
   }
 }

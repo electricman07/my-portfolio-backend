@@ -42,6 +42,12 @@
       "relation": "manyToMany",
       "target": "api::tech-stack.tech-stack",
       "inversedBy": "projects"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "mappedBy": "related_projects"
     }
   }
 }
