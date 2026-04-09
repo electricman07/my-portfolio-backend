@@ -19,6 +19,13 @@
     },
     "iconName": {
       "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "descriptionDetail": {
+      "type": "blocks"
     }
   }
 }
