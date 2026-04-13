@@ -8,6 +8,13 @@ export default [
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
       headers: ["Content-Type", "Authorization", "Origin", "Accept"],
       keepHeaderOnError: true,
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "script-src": ["'self'", "https://cdn.ckeditor.com"],
+          "connect-src": ["'self'", "https://proxy-event.ckeditor.com"],
+        },
+      },
     },
   },
   "strapi::poweredBy",
