@@ -26,9 +26,6 @@
       "target": "api::project.project",
       "mappedBy": "technologies"
     },
-    "description": {
-      "type": "blocks"
-    },
     "proficiency": {
       "type": "integer"
     },
@@ -36,6 +33,13 @@
       "type": "component",
       "component": "shared.milestone",
       "repeatable": true
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   }
 }
