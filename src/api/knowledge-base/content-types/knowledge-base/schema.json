@@ -14,12 +14,6 @@
     "title": {
       "type": "string"
     },
-    "symptoms": {
-      "type": "blocks"
-    },
-    "theFix": {
-      "type": "blocks"
-    },
     "severity": {
       "type": "enumeration",
       "enum": [
@@ -52,6 +46,20 @@
       "relation": "manyToMany",
       "target": "api::knowledge-base.knowledge-base",
       "mappedBy": "related_articles"
+    },
+    "symptom": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "theFix": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   }
 }

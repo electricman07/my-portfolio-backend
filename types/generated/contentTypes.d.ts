@@ -653,8 +653,20 @@ export interface ApiKnowledgeBaseKnowledgeBase
     >;
     severity: Schema.Attribute.Enumeration<['low', 'medium', 'high']>;
     slug: Schema.Attribute.UID<'title'>;
-    symptoms: Schema.Attribute.Blocks;
-    theFix: Schema.Attribute.Blocks;
+    symptom: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    theFix: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
