@@ -910,7 +910,13 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   attributes: {
     clientName: Schema.Attribute.String;
     clientRole: Schema.Attribute.String;
-    content: Schema.Attribute.Blocks;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
