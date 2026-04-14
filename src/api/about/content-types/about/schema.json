@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "blocks"
-    },
     "profileImage": {
       "type": "media",
       "multiple": false,
@@ -33,12 +30,6 @@
       "component": "shared.core-values",
       "repeatable": true
     },
-    "skills": {
-      "type": "blocks"
-    },
-    "secondaryDescription": {
-      "type": "blocks"
-    },
     "education": {
       "type": "component",
       "component": "shared.education",
@@ -48,6 +39,27 @@
       "type": "component",
       "component": "shared.experience",
       "repeatable": true
+    },
+    "content": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "skills": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "secondaryDescription": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   }
 }
